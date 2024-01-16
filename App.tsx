@@ -1,13 +1,24 @@
-import { StatusBar } from 'expo-status-bar'
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { Platform, StyleSheet, Text, View } from 'react-native'
+
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+
+import Home from './src/Home';
+import Authentification from './src/component/Authentication';
+
+const Tab = Platform.OS ==='android' ? createMaterialBottomTabNavigator() : createBottomTabNavigator();
 
 export default function App (): React.JSX.Element {
+  
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Tab.Navigator initialRouteName='Home'>
+        <Tab.Screen name='Home' component={Home}/>
+        <Tab.Screen name='Authentification' component={Authentification}/>
+      </Tab.Navigator>
+    </NavigationContainer>
   )
 }
 
