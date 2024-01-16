@@ -1,4 +1,5 @@
 RUN : npx expo start
+
 # Installation Typescript sur ReactNative :
 (https://reactnative.dev/docs/typescript)
 
