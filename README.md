@@ -9,5 +9,8 @@ RUN : npx expo start
 # Installation ReactNative Nav :
 (https://github.com/Calanfive/ReactNative-Map-more/blob/main/ReactNative_Map.md)
 
+# tsconfig.jsoc
+(https://www.reactnativeschool.com/adding-typescript-to-an-existing-react-native-application)
+
 
 
