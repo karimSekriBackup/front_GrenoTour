@@ -1,12 +1,13 @@
+import { useNavigation } from '@react-navigation/native'
 import React from 'react'
 import { Alert, Button, StyleSheet, Text, View } from 'react-native'
 import { TextInput } from 'react-native-paper'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
 export default function Authentification (): React.JSX.Element{
-  
-  const [login, onChangeLogin] = React.useState('');
-  const [mail, onChangeMail] = React.useState('');
+  const navigation = useNavigation()
+  const [login, onChangeLogin] = React.useState('')
+  const [mail, onChangeMail] = React.useState('')
 
   return (
     
@@ -26,8 +27,15 @@ export default function Authentification (): React.JSX.Element{
         placeholder='Mail'
       />
 
-      <Button title='Go' onPress={() => Alert.alert('Button Go ok')}></Button>
-      <Button title='Connexion' onPress={() => Alert.alert('Button Connexion ok')}></Button>
+      <Button 
+        title='Go' 
+        onPress={() => Alert.alert('Button Go ok')}
+        />
+      <Button 
+        title='Connexion' 
+        onPress={() => Alert.alert('Button Connexion ok')}
+        />
+      {/* <Button title='Connexion' onPress={() => navigation.navigate("Connexion")}></Button> */}
 
     </SafeAreaView>
   )

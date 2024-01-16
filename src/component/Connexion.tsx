@@ -9,22 +9,28 @@ export default function Connexion (): React.JSX.Element {
   return (
     
     <SafeAreaView style={styles.container}>
-      
-      <TextInput
+        
+        <TextInput
         style={styles.input}
         onChangeText={onChangeLogin}
         value={login}
         placeholder='Username'
-      />
+        />
 
-      <TextInput
+        <TextInput
         style={styles.input}
         onChangeText={onChangeMail}
         value={mail}
         placeholder='Mail'
-      />
-      <Button title='Go' onPress={() => Alert.alert('Button Go ok')}></Button>
-      <Button title='New Account'  onPress={() => Alert.alert('Button New Account ok')}></Button>
+        />
+        <Button 
+        title='Go' 
+        onPress={() => Alert.alert('Button Go ok')}
+        />
+        <Button 
+        title='New Account' 
+        onPress={() => Alert.alert('Button New Account ok')}
+        />
 
     </SafeAreaView>
   )
