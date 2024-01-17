@@ -9,8 +9,10 @@ RUN : npx expo start
 # Installation ReactNative Nav :
 (https://github.com/Calanfive/ReactNative-Map-more/blob/main/ReactNative_Map.md)
 
-# tsconfig.jsoc
+# tsconfig.json
 (https://www.reactnativeschool.com/adding-typescript-to-an-existing-react-native-application)
 
-
-
+# Lancement de Prettier sur un fichier :
+npx prettier --write <fichier>
+# Lancement de Prettier sur tous les fichiers :
+npx prettier --write .
