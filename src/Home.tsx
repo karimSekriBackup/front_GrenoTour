@@ -1,21 +1,21 @@
-import React from 'react'
-import { Button, StyleSheet, Text, View } from 'react-native'
+import React from "react";
+import {Button, StyleSheet, Text, View} from "react-native";
 
-export default function Home (): React.JSX.Element {
-  return (
-    <View style={styles.container}>
-      <Text>Menu</Text>
-      <Button title='connexion'/>
-      <Button title='inscription'/>
-    </View>
-  )
+export default function Home(): React.JSX.Element {
+    return (
+        <View style={styles.container}>
+            <Text>Menu</Text>
+            <Button title="connexion" />
+            <Button title="inscription" />
+        </View>
+    );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
-})
+    container: {
+        flex: 1,
+        backgroundColor: "#fff",
+        alignItems: "center",
+        justifyContent: "center",
+    },
+});
