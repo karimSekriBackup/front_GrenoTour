@@ -1,12 +1,13 @@
 import React from "react";
 import {Button, StyleSheet, Text, View} from "react-native";
+import GoToButton from "../component/GoToButton";
 
 export default function Home(): React.JSX.Element {
     return (
         <View style={styles.container}>
-            <Text>Menu</Text>
-            <Button title="connexion" />
-            <Button title="inscription" />
+            <Text>Home Page</Text>
+            <GoToButton title="Connexion" />
+            <GoToButton title="Inscription" />
         </View>
     );
 }

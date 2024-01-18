@@ -5,8 +5,9 @@ import {NavigationContainer} from "@react-navigation/native";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import {createMaterialBottomTabNavigator} from "@react-navigation/material-bottom-tabs";
 
-import Home from "./src/Home";
-import Authentification from "./src/component/Authentication";
+import Home from "./src/routes/Home";
+import Authentification from "./src/routes/Authentication";
+import Connexion from "./src/routes/Connexion";
 
 const Tab =
     Platform.OS === "android"
@@ -21,10 +22,15 @@ export default function App(): React.JSX.Element {
                     name="Home"
                     component={Home}
                 />
+                  <Tab.Screen
+                    name="Connexion"
+                    component={Connexion}
+                />
                 <Tab.Screen
                     name="Authentification"
                     component={Authentification}
                 />
+                
             </Tab.Navigator>
         </NavigationContainer>
     );

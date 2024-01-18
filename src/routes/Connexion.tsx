@@ -3,15 +3,17 @@ import {Alert, Button, StyleSheet, TextInput, View} from "react-native";
 import {SafeAreaView} from "react-native-safe-area-context";
 
 export default function Connexion(): React.JSX.Element {
-    const [login, onChangeLogin] = React.useState("");
     const [mail, onChangeMail] = React.useState("");
+    const [Password, onChangePassword] = React.useState("");
+    
 
     return (
         <SafeAreaView style={styles.container}>
+            <View>
             <TextInput
                 style={styles.input}
-                onChangeText={onChangeLogin}
-                value={login}
+                onChangeText={onChangePassword}
+                value={Password}
                 placeholder="Username"
             />
 
@@ -22,13 +24,14 @@ export default function Connexion(): React.JSX.Element {
                 placeholder="Mail"
             />
             <Button
-                title="Go"
-                onPress={() => Alert.alert("Button Go ok")}
+                title="Connexion"
+                onPress={() => Alert.alert("Button Connexion ok")}
             />
             <Button
                 title="New Account"
                 onPress={() => Alert.alert("Button New Account ok")}
             />
+            </View>
         </SafeAreaView>
     );
 }
