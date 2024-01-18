@@ -8,7 +8,7 @@ export default function GoToButton({title }: { title: string }): React.JSX.Eleme
     const navigation = useNavigation();
     const onPressButton = () => {
         navigation.navigate(title);
-        console.log("ok")
+        
     }
     return (
         <View>
