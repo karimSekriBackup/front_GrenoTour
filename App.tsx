@@ -6,35 +6,43 @@ import {NavigationContainer} from "@react-navigation/native";
 // import {createMaterialBottomTabNavigator} from "@react-navigation/material-bottom-tabs";
 import { createStackNavigator } from '@react-navigation/stack';
 
+
 import Home from "./src/routes/Home";
-import Authentification from "./src/routes/Authentication";
+import Inscription from "./src/routes/Inscription";
 import Connexion from "./src/routes/Connexion";
+import InformationItineraire from "./src/routes/InformationItineraire";
 
 // const Tab =
 //     Platform.OS === "android"
 //         ? createMaterialBottomTabNavigator()
 //         : createBottomTabNavigator();
 
-const Tab = createStackNavigator();
+const Stack = createStackNavigator();
 
 export default function App(): React.JSX.Element {
     return (
         <NavigationContainer>
-            <Tab.Navigator initialRouteName="Home">
-                <Tab.Screen
+            <Stack.Navigator initialRouteName="Home">
+                <Stack.Screen
                     name="Home"
                     component={Home}
                 />
-                  <Tab.Screen
+                  <Stack.Screen
                     name="Connexion"
                     component={Connexion}
                 />
-                <Tab.Screen
-                    name="Authentification"
-                    component={Authentification}
+                <Stack.Screen
+                    name="Inscription"
+                    component={Inscription}
                 />
+                <Stack.Screen
+                    name="InformationItineraire"
+                    component={InformationItineraire}
+                    options={{ title: 'Information Itineraire' }}
+                />
+
                 
-            </Tab.Navigator>
+            </Stack.Navigator>
         </NavigationContainer>
     );
 }
