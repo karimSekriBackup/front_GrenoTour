@@ -1,14 +1,18 @@
 import React from "react";
-import {Button, StyleSheet, Text, View} from "react-native";
-import GoToButton from "../component/GoToButton";
+import { StyleSheet, Text, View} from "react-native";
+import GoToPageButton from "../component/GoToPageButton";
+
 
 export default function Home(): React.JSX.Element {
     return (
+        
         <View style={styles.container}>
             <Text>Home Page</Text>
-            <GoToButton title="Connexion" />
-            <GoToButton title="Inscription" />
+            <GoToPageButton title="Connexion" page="Connexion" />
+            <GoToPageButton title="Inscription" page="Inscription" />
+            <GoToPageButton title="Information Itineraire" page="InformationItineraire"/>
         </View>
+        
     );
 }
 
@@ -18,5 +22,8 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
         alignItems: "center",
         justifyContent: "center",
+        borderColor: "blue",
+        borderStyle: "solid",
+        borderWidth: 1,
     },
 });
