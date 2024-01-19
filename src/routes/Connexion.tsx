@@ -8,7 +8,7 @@ export default function Connexion(): React.JSX.Element {
 
 
     async function handleLogin(myMail:string, myPassword:string): Promise<React.JSX.Element> {
-        const response = await fetch("http://192.168.190.198:3000/api/auth/local", {
+        const response = await fetch("http://192.168.1.85:3000/api/auth/local", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
