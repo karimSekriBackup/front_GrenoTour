@@ -1,17 +1,20 @@
 import React from "react";
-import {Platform, StyleSheet, Text, View} from "react-native";
-export { default } from './.storybook';
+import {StyleSheet} from "react-native";
+import Constants from 'expo-constants';
 
 import {NavigationContainer} from "@react-navigation/native";
 // import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 // import {createMaterialBottomTabNavigator} from "@react-navigation/material-bottom-tabs";
 import { createStackNavigator } from '@react-navigation/stack';
 
+import Storybook from './.storybook'
 
 import Home from "./src/routes/Home";
 import Inscription from "./src/routes/Inscription";
 import Connexion from "./src/routes/Connexion";
 import InformationItineraire from "./src/routes/InformationItineraire";
+
+const apiUrl = Constants.expoConfig.extra.storybookEnabled;
 
 // const Tab =
 //     Platform.OS === "android"
@@ -20,7 +23,7 @@ import InformationItineraire from "./src/routes/InformationItineraire";
 
 const Stack = createStackNavigator();
 
-export default function App(): React.JSX.Element {
+export function App(): React.JSX.Element {
     return (
         <NavigationContainer>
             <Stack.Navigator initialRouteName="Home">
@@ -48,6 +51,14 @@ export default function App(): React.JSX.Element {
     );
 }
 
+
+let AppEntryPoint = App;
+
+if (Constants.expoConfig.extra.storybookEnabled === 'true') {
+  AppEntryPoint = Storybook;
+}
+
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -56,3 +67,5 @@ const styles = StyleSheet.create({
         justifyContent: "center",
     },
 });
+
+export default AppEntryPoint;
