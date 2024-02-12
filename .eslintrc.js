@@ -8,6 +8,7 @@ export default {
         "plugin:react/recommended",
         "prettier",
         "prettier/@typescript-eslint",
+        "plugin:storybook/recommended"
     ],
     overrides: [
         {
