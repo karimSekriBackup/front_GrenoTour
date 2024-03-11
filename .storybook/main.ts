@@ -1,19 +1,8 @@
-import type {StorybookConfig} from "@storybook/react-vite";
+import { StorybookConfig } from '@storybook/react-native';
 
-const config: StorybookConfig = {
-    stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
-    addons: [
-        "@storybook/addon-links",
-        "@storybook/addon-essentials",
-        "@storybook/addon-onboarding",
-        "@storybook/addon-interactions",
-    ],
-    framework: {
-        name: "@storybook/react-vite",
-        options: {},
-    },
-    docs: {
-        autodocs: "tag",
-    },
+const main: StorybookConfig = {
+  stories: ['./stories/**/*.stories.?(ts|tsx|js|jsx)'],
+  addons: ['@storybook/addon-ondevice-controls', '@storybook/addon-ondevice-actions'],
 };
-export default config;
+
+export default main;
