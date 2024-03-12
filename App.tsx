@@ -7,14 +7,10 @@ import {NavigationContainer} from "@react-navigation/native";
 // import {createMaterialBottomTabNavigator} from "@react-navigation/material-bottom-tabs";
 import { createStackNavigator } from '@react-navigation/stack';
 
-import Storybook from './.storybook'
-
 import Home from "./src/routes/Home";
 import Inscription from "./src/routes/Inscription";
 import Connexion from "./src/routes/Connexion";
 import InformationItineraire from "./src/routes/InformationItineraire";
-
-const apiUrl = Constants.expoConfig.extra.storybookEnabled;
 
 // const Tab =
 //     Platform.OS === "android"
@@ -53,11 +49,6 @@ export function App(): React.JSX.Element {
 
 
 let AppEntryPoint = App;
-
-if (Constants.expoConfig.extra.storybookEnabled === 'true') {
-  AppEntryPoint = Storybook;
-}
-
 
 const styles = StyleSheet.create({
     container: {
