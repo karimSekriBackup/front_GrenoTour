@@ -10,10 +10,6 @@ export default function BarreNavigation(): React.JSX.Element {
             <GoToPageButton title="1" page="Connexion" />
             <GoToPageButton title="2" page="Inscription" />
             <GoToPageButton title="3" page="InformationItineraire"/>
-
-            {/* <GoToPageButton title="Connexion" page="Connexion" />
-            <GoToPageButton title="Inscription" page="Inscription" />
-            <GoToPageButton title="Information Itineraire" page="InformationItineraire"/> */}
         </View>
         
     );
@@ -21,12 +17,12 @@ export default function BarreNavigation(): React.JSX.Element {
 
 const styles = StyleSheet.create({
     BarreNavigation: {
-        display: "flex",
+        padding: 10,
+        borderTopEndRadius: 25,
+        borderTopLeftRadius: 25,
+        width: "80%",
+        backgroundColor: "green",
+        justifyContent: "center",
         flexDirection:'row',
-        padding: 50,
-        backgroundColor: "#fff",
-        borderColor: "green",
-        borderStyle: "solid",
-        borderWidth: 5,
     },
 });

@@ -10,19 +10,18 @@ export default function GoToPageButton({title , page }: GoToPageButtonProps): Re
     
     const navigation = useNavigation();
     
-    
     const onPressButton = () => {
         navigation.navigate(page);
-        
     }
 
-
     return (
-        <Button 
-            title={`${title}`}
-            onPress={onPressButton}
-            
-        />
+        // <Button 
+        //     title={`${title}`}
+        //     onPress={onPressButton}
+        // />
+        <Pressable style={styles.button} onPress={onPressButton}>
+            <Text style={styles.text}>{title}</Text>
+        </Pressable>
     );
 }
 
@@ -32,6 +31,9 @@ const styles = StyleSheet.create({
         paddingHorizontal: 32,
         borderRadius: 4,
         elevation: 3,
+        borderColor: "red",
+        borderStyle: "solid",
+        borderWidth: 1,
         backgroundColor: "green",
     },
     text: {
