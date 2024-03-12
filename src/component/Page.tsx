@@ -1,6 +1,6 @@
 import { PropsWithChildren } from "react";
 import { View } from "react-native";
-import { styles } from "../StylesCSS/Styles";
+import { StylesCSS } from "../StylesCSS/Styles";
 
 interface PageProps extends PropsWithChildren {
 
@@ -8,7 +8,7 @@ interface PageProps extends PropsWithChildren {
 
 export default function Page(props: PageProps){
     return (
-      <View style={styles.container}>
+      <View style={StylesCSS.container}>
         {props.children}
       </View>
     )

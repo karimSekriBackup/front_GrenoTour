@@ -3,6 +3,7 @@ import React from "react";
 import {Alert, Button, StyleSheet} from "react-native";
 import {TextInput} from "react-native-paper";
 import {SafeAreaView} from "react-native-safe-area-context";
+import { StylesCSS } from "../StylesCSS/Styles";
 
 export default function Authentification(): React.JSX.Element {
     const navigation = useNavigation();
@@ -10,7 +11,7 @@ export default function Authentification(): React.JSX.Element {
     const [mail, onChangeMail] = React.useState("");
 
     return (
-        <SafeAreaView style={styles.container}>
+        <SafeAreaView style={StylesCSS.container}>
             <TextInput
                 style={styles.input}
                 onChangeText={onChangeLogin}
@@ -39,12 +40,6 @@ export default function Authentification(): React.JSX.Element {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: "#fff",
-        alignItems: "center",
-        justifyContent: "center",
-    },
     input: {
         backgroundColor: "#e0ffff",
     },

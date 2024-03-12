@@ -1,6 +1,7 @@
 import React from "react";
 import {Text, Button, StyleSheet, TextInput, View,TouchableOpacity} from "react-native";
 import {SafeAreaView} from "react-native-safe-area-context";
+import { StylesCSS } from "../StylesCSS/Styles";
 
 export default function Connexion(): React.JSX.Element {
     const [mail, setEmail] = React.useState("");
@@ -21,7 +22,7 @@ export default function Connexion(): React.JSX.Element {
       }
 
     return (
-        <SafeAreaView style={styles.container}>
+        <SafeAreaView style={StylesCSS.container}>
             <View>
                 <Text style={styles.label}>Email:</Text>
                 <TextInput
@@ -54,12 +55,6 @@ export default function Connexion(): React.JSX.Element {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: "#fff",
-        alignItems: "center",
-        justifyContent: "center",
-    },
     label: {
         fontSize: 16,
         marginBottom: 8,
