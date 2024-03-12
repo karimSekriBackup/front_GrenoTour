@@ -48,7 +48,6 @@ export function App(): React.JSX.Element {
                             component={Filtres}
                             options={{ title: "Filtres"}}
                         />
-                        
                     </Stack.Navigator>
                 </NavigationContainer>
         </SafeAreaProvider>

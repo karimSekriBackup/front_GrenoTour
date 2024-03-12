@@ -1,15 +1,13 @@
 import React from "react";
-import {Text, View} from "react-native";
+import {Text, View, StyleSheet} from "react-native";
 import BarreNavigation from "../component/BarreNavigation";
 import Page from "../component/Page";
-import { StylesCSS } from "../StylesCSS/Styles";
-
 
 export default function Home(): React.JSX.Element {
     return (
         
         <Page>
-            <View style={StylesCSS.aaa}>
+            <View style={styles.aaa}>
                 <Text>Home Page</Text>
                 <BarreNavigation/>
             </View>
@@ -17,3 +15,16 @@ export default function Home(): React.JSX.Element {
         
     );
 }
+
+const styles = StyleSheet.create({
+    aaa: {
+        height: "100%",
+        width: "100%",
+        alignItems: "center",
+        justifyContent: "flex-end",
+        backgroundColor: "#e0ffff",
+        borderColor: "red",
+        borderStyle: "solid",
+        borderWidth: 5,
+    },
+});

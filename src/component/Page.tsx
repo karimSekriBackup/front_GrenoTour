@@ -2,6 +2,7 @@ import { PropsWithChildren } from "react";
 import { View } from "react-native";
 import { StylesCSS } from "../StylesCSS/Styles";
 
+
 interface PageProps extends PropsWithChildren {
 
 }

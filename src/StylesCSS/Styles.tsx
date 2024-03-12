@@ -10,7 +10,4 @@ export const StylesCSS = StyleSheet.create({
       borderStyle: "solid",
       borderWidth: 1,
   },
-  aaa:{
-
-  }
 });
