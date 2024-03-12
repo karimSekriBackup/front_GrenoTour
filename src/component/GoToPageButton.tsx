@@ -1,7 +1,5 @@
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { Button, StyleSheet,  View, Pressable, Text} from "react-native";
-import {SafeAreaView} from "react-native-safe-area-context";
-
 
 interface GoToPageButtonProps {
     title: string;

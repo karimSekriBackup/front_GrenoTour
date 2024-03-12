@@ -11,6 +11,8 @@ import Home from "./src/routes/Home";
 import Inscription from "./src/routes/Inscription";
 import Connexion from "./src/routes/Connexion";
 import InformationItineraire from "./src/routes/InformationItineraire";
+import Filtres from "./src/routes/Filtres";
+import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 
 // const Tab =
 //     Platform.OS === "android"
@@ -21,29 +23,35 @@ const Stack = createStackNavigator();
 
 export function App(): React.JSX.Element {
     return (
-        <NavigationContainer>
-            <Stack.Navigator initialRouteName="Home">
-                <Stack.Screen
-                    name="Home"
-                    component={Home}
-                />
-                  <Stack.Screen
-                    name="Connexion"
-                    component={Connexion}
-                />
-                <Stack.Screen
-                    name="Inscription"
-                    component={Inscription}
-                />
-                <Stack.Screen
-                    name="InformationItineraire"
-                    component={InformationItineraire}
-                    options={{ title: 'Information Itineraire' }}
-                />
-
-                
-            </Stack.Navigator>
-        </NavigationContainer>
+        <SafeAreaProvider>
+            <NavigationContainer>
+                <Stack.Navigator initialRouteName="Home">
+                    <Stack.Screen
+                        name="Home"
+                        component={Home}
+                    />
+                    <Stack.Screen
+                        name="Connexion"
+                        component={Connexion}
+                    />
+                    <Stack.Screen
+                        name="Inscription"
+                        component={Inscription}
+                    />
+                    <Stack.Screen
+                        name="InformationItineraire"
+                        component={InformationItineraire}
+                        options={{ title: "Information Itineraire" }}
+                    />
+                    <Stack.Screen
+                        name="Filtres"
+                        component={Filtres}
+                        options={{ title: "Filtres"}}
+                    />
+                    
+                </Stack.Navigator>
+            </NavigationContainer>
+        </SafeAreaProvider>
     );
 }
 
