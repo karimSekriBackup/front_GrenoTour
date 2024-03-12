@@ -18,35 +18,16 @@ export default function GoToPageButton({title , page }: GoToPageButtonProps): Re
 
 
     return (
-        <View style={styles.container}>
-            <Button 
-                title={`${title}`}
-                onPress={onPressButton}
-                
-            />
-
-        <Pressable style={styles.button} onPress={onPressButton}>
-             <Text style={styles.text}>{title}</Text>
-        </Pressable>
-        </View>
-        
-        
+        <Button 
+            title={`${title}`}
+            onPress={onPressButton}
+            
+        />
     );
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: "white",
-        alignItems: "center",
-        justifyContent: "center",
-        borderColor: "red",
-        borderStyle: "solid",
-        borderWidth: 1,
-    },
     button: {
-        alignItems: "center",
-        justifyContent: "center",
         paddingVertical: 12,
         paddingHorizontal: 32,
         borderRadius: 4,

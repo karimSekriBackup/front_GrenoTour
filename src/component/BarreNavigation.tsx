@@ -18,6 +18,8 @@ export default function BarreNavigation(): React.JSX.Element {
 const styles = StyleSheet.create({
     BarreNavigation: {
         display: "flex",
+        flexDirection:'row',
+        padding: 50,
         backgroundColor: "#fff",
         borderColor: "green",
         borderStyle: "solid",
