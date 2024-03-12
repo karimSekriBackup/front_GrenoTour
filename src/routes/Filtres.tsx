@@ -1,16 +1,15 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { StylesCSS } from "../StylesCSS/Styles";
+import Page from "../component/Page";
 
 export default function Filtres(): React.JSX.Element {
 
     return (
-        <SafeAreaView style={StylesCSS.container}>
+        <Page>
             <View>
                 <Text>Test</Text>
             </View>
-        </SafeAreaView>
+        </Page>
     );
 }
 

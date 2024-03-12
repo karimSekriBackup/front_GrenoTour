@@ -1,7 +1,6 @@
 import React from "react";
-import {Text, Button, StyleSheet, TextInput, View,TouchableOpacity} from "react-native";
-import {SafeAreaView} from "react-native-safe-area-context";
-import { StylesCSS } from "../StylesCSS/Styles";
+import {Text, StyleSheet, TextInput, View,TouchableOpacity} from "react-native";
+import Page from "../component/Page";
 
 export default function Connexion(): React.JSX.Element {
     const [mail, setEmail] = React.useState("");
@@ -22,7 +21,7 @@ export default function Connexion(): React.JSX.Element {
       }
 
     return (
-        <SafeAreaView style={StylesCSS.container}>
+        <Page>
             <View>
                 <Text style={styles.label}>Email:</Text>
                 <TextInput
@@ -50,7 +49,7 @@ export default function Connexion(): React.JSX.Element {
                     <Text>Se Connecter</Text>
                 </TouchableOpacity>
             </View>
-        </SafeAreaView>
+        </Page>
     );
 }
 
