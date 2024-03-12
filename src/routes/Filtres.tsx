@@ -1,16 +1,18 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Page from "../component/Page";
+import GoToPageButton from "../component/GoToPageButton";
 
 export default function Filtres(): React.JSX.Element {
 
     return (
         <Page>
             <View style={styles.header}>
-
+                <Text>Affichage des activités</Text>
             </View>
             <View style={styles.header}>
-                
+                <GoToPageButton title="Carte" page="Home" />
+                {/* <Checkbox></Checkbox> */}
             </View>
             <View style={styles.filters}>
                 <View></View>
@@ -74,10 +76,7 @@ const styles = StyleSheet.create({
         height: "100%",
         width: "100%",
         flex: 1,
-        backgroundColor: "CAD1C7",    
-        borderColor: "red",
-        borderStyle: "solid",
-        borderWidth: 1
+        backgroundColor: "CAD1C7"
     },
     title : {
         backgroundColor: "#00980d",
