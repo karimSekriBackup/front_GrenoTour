@@ -80,24 +80,30 @@ const styles = StyleSheet.create({
         borderWidth: 1
     },
     title : {
-        backgroundColor: "00980d",
+        backgroundColor: "#00980d",
+        height: "40%"
     },
     choiceToDo : {
+        height: "60%"
     },
 
     actions : {
         height: "100%",
         width: "100%",
         backgroundColor: "#d3d3d3",
+        flexDirection: "row",
+        justifyContent: "space-around",
+        alignItems: "center",
         flex: 1,
-        borderColor: "green",
-        borderStyle: "solid",
-        borderWidth: 1
     },
     effacer : {
-        backgroundColor : "#cd5c5c"
+        height: "70%",
+        backgroundColor: "#cd5c5c",
+        borderRadius: 10
     },
     appliquer : {
-        backgroundColor : "#f4a460"
+        height: "70%",
+        backgroundColor : "#f4a460",
+        borderRadius: 10
     }
 });
