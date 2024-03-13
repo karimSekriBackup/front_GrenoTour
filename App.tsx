@@ -1,8 +1,8 @@
 import React from "react";
-import {StyleSheet} from "react-native";
+import { StyleSheet } from "react-native";
 import Constants from 'expo-constants';
 
-import {NavigationContainer} from "@react-navigation/native";
+import { NavigationContainer } from "@react-navigation/native";
 // import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 // import {createMaterialBottomTabNavigator} from "@react-navigation/material-bottom-tabs";
 import { createStackNavigator } from '@react-navigation/stack';
@@ -14,6 +14,8 @@ import InformationItineraire from "./src/routes/InformationItineraire";
 import Filtres from "./src/routes/Filtres";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 
+import { NativeBaseProvider } from 'native-base';
+
 // const Tab =
 //     Platform.OS === "android"
 //         ? createMaterialBottomTabNavigator()
@@ -23,7 +25,8 @@ const Stack = createStackNavigator();
 
 export function App(): React.JSX.Element {
     return (
-        <SafeAreaProvider>
+        <NativeBaseProvider>
+            <SafeAreaProvider>
                 <NavigationContainer>
                     <Stack.Navigator initialRouteName="Home">
                         <Stack.Screen
@@ -46,11 +49,12 @@ export function App(): React.JSX.Element {
                         <Stack.Screen
                             name="Filtres"
                             component={Filtres}
-                            options={{ title: "Filtres"}}
+                            options={{ title: "Filtres" }}
                         />
                     </Stack.Navigator>
                 </NavigationContainer>
-        </SafeAreaProvider>
+            </SafeAreaProvider>
+        </NativeBaseProvider>
     );
 }
 
