@@ -2,22 +2,24 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import GoToPageButton from "./GoToPageButton";
 
-import { HStack, Checkbox, Center, NativeBaseProvider } from "native-base";
-import { color } from "native-base/lib/typescript/theme/styled-system";
+import { StraggerComposants } from "./NativeBase/StaggerComposants";
 
 
 export default function BarreNavigation(): React.JSX.Element {
     return (
+        <>
+            <View style={styles.BarreNavigation}>
 
-        <View style={styles.BarreNavigation}>
-            <GoToPageButton title="1" page="Connexion" />
-            <GoToPageButton title="2" page="Inscription" />
-            <GoToPageButton title="3" page="InformationItineraire" />
+                <StraggerComposants />
 
-            <Checkbox value="test" aria-label="toto" />
+                <GoToPageButton title="1" page="1" />
+                <GoToPageButton title="go" page="go" />
+                <GoToPageButton title="2" page="1" />
 
-        </View>
+                <StraggerComposants />
 
+            </View>
+        </>
     );
 }
 
