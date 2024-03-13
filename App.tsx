@@ -1,8 +1,8 @@
-import React from "react";
-import { StyleSheet } from "react-native";
+import React, { useState } from "react";
+import {Button, StyleSheet, Text, View} from "react-native";
 import Constants from 'expo-constants';
 
-import { NavigationContainer } from "@react-navigation/native";
+import {NavigationContainer, useLinkProps} from "@react-navigation/native";s
 // import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 // import {createMaterialBottomTabNavigator} from "@react-navigation/material-bottom-tabs";
 import { createStackNavigator } from '@react-navigation/stack';
@@ -21,9 +21,20 @@ import { NativeBaseProvider } from 'native-base';
 //         ? createMaterialBottomTabNavigator()
 //         : createBottomTabNavigator();
 
+
+/* {
+    train: false,
+    bus: true,
+
+    nature: true,
+    romantique: false,
+    famille: false
+} */
+
 const Stack = createStackNavigator();
 
 export function App(): React.JSX.Element {
+
     return (
         <NativeBaseProvider>
             <SafeAreaProvider>

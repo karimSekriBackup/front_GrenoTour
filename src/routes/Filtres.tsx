@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Page from "../component/Page";
 import GoToPageButton from "../component/GoToPageButton";
+import FilterButton from "../component/FilterButton";
+import MultiChoices from "../component/MultiChoices";
 
 export default function Filtres(): React.JSX.Element {
+    const [familleActivated, setFamilleActivated] = useState(true)
+
 
     return (
         <Page>
@@ -21,38 +25,25 @@ export default function Filtres(): React.JSX.Element {
                 <View style={styles.title}>
                     <Text>Transport</Text>
                 </View>
-                <View style={styles.choiceToDo}></View>
-            </View>
-            <View style={styles.filters}>
-                <View style={styles.title}>
-                    <Text>Type de séjour</Text>
+                <View style={styles.choiceToDo}>
+                    
+                    <FilterButton 
+                        active={familleActivated} 
+                        onPressButton={() => {
+                            setFamilleActivated(!familleActivated)
+                        }}
+                    >
+                        Famille
+                    </FilterButton>
                 </View>
-                <View style={styles.choiceToDo}></View>
             </View>
-            <View style={styles.filters}>
-                <View style={styles.title}>
-                    <Text>Lieu</Text>
-                </View>
-                <View style={styles.choiceToDo}></View>
-            </View>
-            <View style={styles.filters}>
-                <View style={styles.title}>
-                    <Text>Evènements</Text>
-                </View>
-                <View style={styles.choiceToDo}></View>
-            </View>
-            <View style={styles.filters}>
-                <View style={styles.title}>
-                    <Text>Cuisine</Text>
-                </View>
-                <View style={styles.choiceToDo}></View>
-            </View>
-            <View style={styles.filters}>
-                <View style={styles.title}>
-                    <Text>Boisson</Text>  
-                </View>
-                <View style={styles.choiceToDo}></View>
-            </View>
+         
+            <MultiChoices title="Transport" choices={["à pied", "vélo", "bus", "tram", "voiture"]} activesIndexes={[0,1]} />
+            <MultiChoices title="Type de séjour" choices={["romantique","en famille", "nature", "culturel"]} activesIndexes={[0, 3]} />
+            <MultiChoices title="Lieu" choices={["gratuit", "extérieur", "intérieur", "point de vue"]} activesIndexes={[1]} />
+            <MultiChoices title="Type" choices={["théâtre", "musique", "fête", "nature", "danse", "sports"]} activesIndexes={[1]} />
+            <MultiChoices title="Cuisine" choices={["végé", "locale", "végan", "gourmande", "monde"]} activesIndexes={[1]} />
+            <MultiChoices title="Boisson" choices={["bière", "vin", "pub", "terrasse", "cosy"]} activesIndexes={[1]} />
             
             <View style={styles.actions}>
                 <button style={styles.effacer}>Effacer</button>
@@ -71,19 +62,6 @@ const styles = StyleSheet.create({
         borderColor: "blue",
         borderStyle: "solid",
         borderWidth: 1
-    },
-    filters : {
-        height: "100%",
-        width: "100%",
-        flex: 1,
-        backgroundColor: "CAD1C7"
-    },
-    title : {
-        backgroundColor: "#00980d",
-        height: "40%"
-    },
-    choiceToDo : {
-        height: "60%"
     },
 
     actions : {

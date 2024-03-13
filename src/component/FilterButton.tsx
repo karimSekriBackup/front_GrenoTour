@@ -18,16 +18,21 @@ interface FilterButtonProps extends PropsWithChildren {
 }
 
 function FilterButton(props: FilterButtonProps): React.JSX.Element {
-
     return (
         <View>
             <Pressable
                 style={{
                     backgroundColor: props.active ? 'green' : 'white',
+                    borderColor: "black",
+                    borderStyle: "solid",
+                    borderWidth: 1,
+                    borderRadius: 10
                 }}
                 onPress={props.onPressButton}
             >
-                <Text style={{color: props.active ? 'white' : 'black' }}>
+                <Text style={{
+                    color: props.active ? 'white' : 'black'}}
+                >
                     {props.children}
                 </Text>
             </Pressable>
