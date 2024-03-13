@@ -24,7 +24,6 @@ const Stack = createStackNavigator();
 export function App(): React.JSX.Element {
     return (
         <SafeAreaProvider>
-            <SafeAreaView>
                 <NavigationContainer>
                     <Stack.Navigator initialRouteName="Home">
                         <Stack.Screen
@@ -52,7 +51,6 @@ export function App(): React.JSX.Element {
                         
                     </Stack.Navigator>
                 </NavigationContainer>
-            </SafeAreaView>
         </SafeAreaProvider>
     );
 }
