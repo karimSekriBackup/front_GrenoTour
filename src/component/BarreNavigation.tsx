@@ -1,7 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import GoToPageButton from "./GoToPageButton";
-
 import { StraggerComposants } from "./NativeBase/StaggerComposants";
 
 
@@ -12,9 +11,9 @@ export default function BarreNavigation(): React.JSX.Element {
 
                 <StraggerComposants />
 
-                <GoToPageButton title="1" page="1" />
-                <GoToPageButton title="go" page="go" />
-                <GoToPageButton title="2" page="1" />
+                <GoToPageButton title="1" page="Connexion" />
+                <GoToPageButton title="go" page="Inscription" />
+                <GoToPageButton title="2" page="InformationItineraire" />
 
                 <StraggerComposants />
 
