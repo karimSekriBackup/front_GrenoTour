@@ -28,7 +28,7 @@ export function App(): React.JSX.Element {
         <NativeBaseProvider>
             <SafeAreaProvider>
                 <NavigationContainer>
-                    <Stack.Navigator initialRouteName="Home">
+                    <Stack.Navigator initialRouteName="Connexion">
                         <Stack.Screen
                             name="Home"
                             component={Home}

@@ -1,24 +1,49 @@
 import React from "react";
-import {Text, StyleSheet, TextInput, View,TouchableOpacity} from "react-native";
+import { Text, StyleSheet, TextInput, View, TouchableOpacity } from "react-native";
 import Page from "../component/Page";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-export default function Connexion(): React.JSX.Element {
+
+
+const storeTokenConnexion = async (value) => {
+    try {
+
+        await AsyncStorage.setItem('my-token', value);
+    } catch (e) {
+        // saving error
+    }
+};
+export default function Connexion({ navigation }): React.JSX.Element {
     const [mail, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
 
+    async function handleLogin(myMail: string, myPassword: string): Promise<void> {
+        try {
+            const response = await fetch("http://localhost:3000/api/auth/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ identifier: myMail, password: myPassword }),
+            });
+            const data = await response.json();
+            if (data) {
+                //save Token
+                storeTokenConnexion(data.token)
+                //Add Navigate
+                console.log("data", data)
+                navigation.navigate("Home", {token: data.token, otherData: data});
+            }
+            else{
+                navigation.navigate("Connexion");    
+            }
 
-    async function handleLogin(myMail:string, myPassword:string): Promise<React.JSX.Element> {
-        const response = await fetch("http://192.168.1.85:3000/api/auth/local", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ identifier: myMail, password: myPassword }),
-        });
-        const data = await response.json();
-        console.log(data);
-        return data
-      }
+
+        } catch (error) {
+            console.log(error);
+            
+        }
+    }
 
     return (
         <Page>
@@ -45,7 +70,7 @@ export default function Connexion(): React.JSX.Element {
                     title="Se connecter"
                     onPress={handleLogin(mail, password)}
                 /> */}
-                <TouchableOpacity onPress={() =>{handleLogin(mail, password)}}>
+                <TouchableOpacity onPress={() => { handleLogin(mail, password) }}>
                     <Text>Se Connecter</Text>
                 </TouchableOpacity>
             </View>

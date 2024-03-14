@@ -1,3 +1,3 @@
 type Nav = {
-  navigate: (value: string) => void;
+    navigate: (value: string, params?: any) => void;
 }
