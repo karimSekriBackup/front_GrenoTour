@@ -1,21 +1,28 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import GoToPageButton from "./GoToPageButton";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import { StraggerComposants } from "./NativeBase/StaggerComposants";
-
+import { StylesCSS } from "../StylesCSS/Styles";
 
 export default function BarreNavigation(): React.JSX.Element {
     return (
         <>
             <View style={styles.BarreNavigation}>
 
-                <StraggerComposants Button_Page_1="Inscription" Button_Page_2="Connexion" Button_Page_3="InformationItineraire" Button_Page_4="" />
+                <StraggerComposants actions={[{ route: "Connexion", iconName: "location-pin" }, { route: "Inscription", iconName: "photo-library" }, { route: "InformationItineraire", iconName: "photo-library" }]} />
 
-                <GoToPageButton title="1" page="Connexion" />
-                <GoToPageButton title="go" page="Inscription" />
-                <GoToPageButton title="2" page="InformationItineraire" />
+                <Pressable style={StylesCSS.button} onPress={() => alert("1")}>
+                    <Text style={StylesCSS.text}> 1 </Text>
+                </Pressable>
 
-                <StraggerComposants Button_Page_1="" Button_Page_2="" Button_Page_3="" Button_Page_4="" />
+                <Pressable style={StylesCSS.button} onPress={() => alert("go")}>
+                    <Text style={StylesCSS.text}> go </Text>
+                </Pressable>
+
+                <Pressable style={StylesCSS.button} onPress={() => alert("2")}>
+                    <Text style={StylesCSS.text}> 2 </Text>
+                </Pressable>
+
+                <StraggerComposants actions={[]} />
 
             </View>
         </>

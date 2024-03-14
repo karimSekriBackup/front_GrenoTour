@@ -1,38 +1,25 @@
 import React, { useCallback } from "react";
-import { Box, useDisclose, IconButton, Stagger, HStack, Icon, Center, NativeBaseProvider } from "native-base";
+import { Box, useDisclose, IconButton, Stagger, HStack, Icon, Center } from "native-base";
 import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
-interface InPageNavigate {
-  Button_Page_1: never;
-  Button_Page_2: never;
-  Button_Page_3: never;
-  Button_Page_4: never;
-  // never ???
+interface StraggerComposantsProps {
+  actions: {
+    route: string,
+    iconName: string
+  }[]
 }
 
-export const StraggerComposants = ({ Button_Page_1, Button_Page_2, Button_Page_3, Button_Page_4 }: InPageNavigate) => {
+export const StraggerComposants = ({ actions }: StraggerComposantsProps) => {
   const {
     isOpen,
     onToggle
   } = useDisclose();
 
-  const navigation = useNavigation()
+  const navigation = useNavigation<Nav>()
 
-  const onPressButton_1 = useCallback(() => {
-    navigation.navigate(Button_Page_1)
-  }, [])
-
-  const onPressButton_2 = useCallback(() => {
-    navigation.navigate(Button_Page_2)
-  }, [])
-
-  const onPressButton_3 = useCallback(() => {
-    navigation.navigate(Button_Page_3)
-  }, [])
-
-  const onPressButton_4 = useCallback(() => {
-    navigation.navigate(Button_Page_4)
+  const onPressButton = useCallback((value: string) => {
+    navigation.navigate(value)
   }, [])
 
   return <Center >
@@ -65,10 +52,12 @@ export const StraggerComposants = ({ Button_Page_1, Button_Page_2, Button_Page_3
           }
         }
       }}>
-        <IconButton onPress={onPressButton_4} mb="4" variant="solid" bg="indigo.500" colorScheme="indigo" borderRadius="full" icon={<Icon as={MaterialIcons} size="6" name="location-pin" _dark={{ color: "warmGray.50" }} color="warmGray.50" />} />
-        <IconButton onPress={onPressButton_3} mb="4" variant="solid" bg="yellow.400" colorScheme="yellow" borderRadius="full" icon={<Icon as={MaterialCommunityIcons} _dark={{ color: "warmGray.50" }} size="6" name="microphone" color="warmGray.50" />} />
-        <IconButton onPress={onPressButton_2} mb="4" variant="solid" bg="teal.400" colorScheme="teal" borderRadius="full" icon={<Icon as={MaterialCommunityIcons} _dark={{ color: "warmGray.50" }} size="6" name="video" color="warmGray.50" />} />
-        <IconButton onPress={onPressButton_1} mb="4" variant="solid" bg="red.500" colorScheme="red" borderRadius="full" icon={<Icon as={MaterialIcons} size="6" name="photo-library" _dark={{ color: "warmGray.50" }} color="warmGray.50" />} />
+        {actions.map((m: any, i: number) => (
+          <IconButton onPress={() => onPressButton(actions[i].route)} mb="4" variant="solid" bg="indigo.500" colorScheme="indigo" borderRadius="full" icon={<Icon as={MaterialIcons} size="6" name={actions[i].iconName} _dark={{ color: "warmGray.50" }} color="warmGray.50" />} />
+        ))}
+        {/* <IconButton onPress={() => onPressButton(actions[1].route)} mb="4" variant="solid" bg="yellow.400" colorScheme="yellow" borderRadius="full" icon={<Icon as={MaterialCommunityIcons} _dark={{ color: "warmGray.50" }} size="6" name="microphone" color="warmGray.50" />} />
+        <IconButton onPress={() => onPressButton(actions[2].route)} mb="4" variant="solid" bg="teal.400" colorScheme="teal" borderRadius="full" icon={<Icon as={MaterialCommunityIcons} _dark={{ color: "warmGray.50" }} size="6" name="video" color="warmGray.50" />} />
+        <IconButton onPress={() => onPressButton(actions[3].route)} mb="4" variant="solid" bg="red.500" colorScheme="red" borderRadius="full" icon={<Icon as={MaterialIcons} size="6" name="photo-library" _dark={{ color: "warmGray.50" }} color="warmGray.50" />} /> */}
       </Stagger>
     </Box>
     <HStack alignItems="center">
