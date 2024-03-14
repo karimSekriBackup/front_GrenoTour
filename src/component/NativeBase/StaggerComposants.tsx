@@ -53,11 +53,8 @@ export const StraggerComposants = ({ actions }: StraggerComposantsProps) => {
         }
       }}>
         {actions.map((m: any, i: number) => (
-          <IconButton key= {i} onPress={() => onPressButton(actions[i].route)} mb="4" variant="solid" bg="indigo.500" colorScheme="indigo" borderRadius="full" icon={<Icon as={MaterialIcons} size="6" name={actions[i].iconName} _dark={{ color: "warmGray.50" }} color="warmGray.50" />} />
+          <IconButton key={i} onPress={() => onPressButton(actions[i].route)} mb="4" variant="solid" bg="indigo.500" colorScheme="indigo" borderRadius="full" icon={<Icon as={MaterialIcons} size="6" name={actions[i].iconName} _dark={{ color: "warmGray.50" }} color="warmGray.50" />} />
         ))}
-        {/* <IconButton onPress={() => onPressButton(actions[1].route)} mb="4" variant="solid" bg="yellow.400" colorScheme="yellow" borderRadius="full" icon={<Icon as={MaterialCommunityIcons} _dark={{ color: "warmGray.50" }} size="6" name="microphone" color="warmGray.50" />} />
-        <IconButton onPress={() => onPressButton(actions[2].route)} mb="4" variant="solid" bg="teal.400" colorScheme="teal" borderRadius="full" icon={<Icon as={MaterialCommunityIcons} _dark={{ color: "warmGray.50" }} size="6" name="video" color="warmGray.50" />} />
-        <IconButton onPress={() => onPressButton(actions[3].route)} mb="4" variant="solid" bg="red.500" colorScheme="red" borderRadius="full" icon={<Icon as={MaterialIcons} size="6" name="photo-library" _dark={{ color: "warmGray.50" }} color="warmGray.50" />} /> */}
       </Stagger>
     </Box>
     <HStack alignItems="center">
