@@ -28,7 +28,7 @@ export function App(): React.JSX.Element {
         <NativeBaseProvider>
             <SafeAreaProvider>
                 <NavigationContainer>
-                    <Stack.Navigator initialRouteName="Connexion">
+                    <Stack.Navigator initialRouteName="Home">
                         <Stack.Screen
                             name="Home"
                             component={Home}
@@ -51,6 +51,7 @@ export function App(): React.JSX.Element {
                             component={Filtres}
                             options={{ title: "Filtres" }}
                         />
+
                     </Stack.Navigator>
                 </NavigationContainer>
             </SafeAreaProvider>
