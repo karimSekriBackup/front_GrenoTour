@@ -5,7 +5,7 @@ interface SettingMultiChoiceProps {
     title: string,
     choices: string[],
     activesIndexes: number[]
-    pressImpact: (number: number) => void
+    activateButton: (number: number) => void
 }
 
 function MultiChoices(props: SettingMultiChoiceProps): React.JSX.Element {
@@ -21,7 +21,7 @@ function MultiChoices(props: SettingMultiChoiceProps): React.JSX.Element {
                         key={index}
                         active={props.activesIndexes.includes(index)}
                         onPressButton={() => {
-                            props.pressImpact(index)
+                            props.activateButton(index)
                         }}
                     >
                         {choice}       
