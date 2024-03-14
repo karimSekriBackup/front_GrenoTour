@@ -78,6 +78,7 @@ const styles = StyleSheet.create({
         height: "100%",
         width: "100%",
         flex: 1,
+        flexDirection: "row",
         backgroundColor: "#d3d3d3",
         borderColor: "blue",
         borderStyle: "solid",
@@ -96,11 +97,17 @@ const styles = StyleSheet.create({
     effacer : {
         height: "70%",
         backgroundColor: "#cd5c5c",
-        borderRadius: 10
+        borderRadius: 10,
+        borderColor: "black",
+        borderStyle: "solid",
+        borderWidth: 1
     },
     appliquer : {
         height: "70%",
         backgroundColor : "#f4a460",
-        borderRadius: 10
+        borderRadius: 10,
+        borderColor: "black",
+        borderStyle: "solid",
+        borderWidth: 1
     }
 });

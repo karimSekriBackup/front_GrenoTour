@@ -1,5 +1,6 @@
+import { Button } from "native-base";
 import React, { PropsWithChildren } from "react"
-import { Pressable, Text, View } from "react-native"
+import { Text, View } from "react-native"
 import { create } from "zustand";
 
 // interface buttonColor {
@@ -20,7 +21,7 @@ interface FilterButtonProps extends PropsWithChildren {
 function FilterButton(props: FilterButtonProps): React.JSX.Element {
     return (
         <View>
-            <Pressable
+            <Button
                 style={{
                     backgroundColor: props.active ? 'green' : 'white',
                     borderColor: "black",
@@ -35,7 +36,7 @@ function FilterButton(props: FilterButtonProps): React.JSX.Element {
                 >
                     {props.children}
                 </Text>
-            </Pressable>
+            </Button>
         </View>
     )
 }
