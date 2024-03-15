@@ -8,7 +8,7 @@ export default function BarreNavigation(): React.JSX.Element {
         <>
             <View style={styles.BarreNavigation}>
 
-                <StraggerComposants actions={[{ route: "Connexion", iconName: "location-pin" }, { route: "Inscription", iconName: "photo-library" }, { route: "InformationItineraire", iconName: "photo-library" }]} />
+                <StraggerComposants actions={[{ route: "Connexion", iconName: "location-pin" }, { route: "Inscription", iconName: "photo-library" }, { route: "InformationItineraire", iconName: "photo-library" }, { route: "Filtres", iconName: "location-pin" },]} />
 
                 <Pressable style={StylesCSS.button} onPress={() => alert("1")}>
                     <Text style={StylesCSS.text}> 1 </Text>
