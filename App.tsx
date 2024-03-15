@@ -15,6 +15,7 @@ import Filtres from "./src/routes/Filtres";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 
 import { NativeBaseProvider } from 'native-base';
+import Profile from "./src/routes/Profile";
 
 // const Tab =
 //     Platform.OS === "android"
@@ -61,6 +62,11 @@ export function App(): React.JSX.Element {
                             name="Filtres"
                             component={Filtres}
                             options={{ title: "Filtres" }}
+                        />
+                         <Stack.Screen
+                            name="Profile"
+                            component={Profile}
+                            options={{ title: "Profile" }}
                         />
 
                     </Stack.Navigator>

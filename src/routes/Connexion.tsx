@@ -5,10 +5,10 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
 
-const storeTokenConnexion = async (value) => {
+const storeInfosUserConnexion = async (value) => {
     try {
-
-        await AsyncStorage.setItem('my-token', value);
+        const jsonValue = JSON.stringify(value);
+        await AsyncStorage.setItem('my-jsonValueOfUserConnected', jsonValue);
     } catch (e) {
         // saving error
     }
@@ -29,10 +29,10 @@ export default function Connexion({ navigation }): React.JSX.Element {
             const data = await response.json();
             if (data) {
                 //save Token
-                storeTokenConnexion(data.token)
+                storeInfosUserConnexion(data)
                 //Add Navigate
-                console.log("data", data)
-                navigation.navigate("Home", {token: data.token, otherData: data});
+               
+                navigation.navigate("Profile") //, {token: data.token, otherData: data});
             }
             else{
                 navigation.navigate("Connexion");    

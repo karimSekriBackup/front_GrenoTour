@@ -2,21 +2,19 @@ import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 import BarreNavigation from "../component/BarreNavigation";
 import Page from "../component/Page";
-// import { useNavigation } from "@react-navigation/native";
 
 
-export default function Home({ route }): React.JSX.Element {
-    // console.log('route infos', route, route.params);
 
-    //    const { token , otherData} = route.params;
+export default function Home(): React.JSX.Element {
+    
+    
+   
     return (
 
         <Page>
             <View style={styles.aaa}>
-                <Text>Home Page</Text>
-                {/* <Text>Token  :{token}</Text> */}
-                {/* <Text>mail  :{otherData.mail}</Text> */}
-                <BarreNavigation />
+            
+                <BarreNavigation/>
             </View>
         </Page>
 
