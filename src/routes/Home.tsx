@@ -1,7 +1,8 @@
 import React from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { Text, Image, View, StyleSheet } from "react-native";
 import BarreNavigation from "../component/BarreNavigation";
 import Page from "../component/Page";
+import MapView from 'react-native-maps';
 import { Link, useNavigation } from "@react-navigation/native";
 import { useFiltersStore } from "../../App";
 
@@ -10,20 +11,22 @@ export default function Home(): React.JSX.Element {
     const { transport } = useFiltersStore()
     return (
 
-
         <Page>
             <View style={styles.Page_home}>
                 <View style={styles.Menu_haut}>
                     <Text>menu du haut</Text>
                 </View>
+
                 <MapView style={styles.Map} initialRegion={{
                     latitude: 45.166672,
                     longitude: 5.71667,
                     latitudeDelta: 0.2,
                     longitudeDelta: 0.2,
-                }} />
-                {/* <Text>Token  :{token}</Text>
-            <Text>mail  :{otherData.mail}</Text> */}                <Text>Home Page</Text>
+                }}>
+                    <Image style={styles.logo} source={require('../Img/logo.png')} />
+                </MapView>
+                {/* <Text>Token  :{token}</Text> */}
+                {/* <Text>mail  :{otherData.mail}</Text> */}                <Text>Home Page</Text>
 
                 {/* Affichage des filtres transports sélectionnés (exemple test) */}
                 <Text>{JSON.stringify(transport)}</Text>
@@ -48,6 +51,11 @@ const styles = StyleSheet.create({
     Map: {
         height: "80%",
         width: "100%",
+        alignItems: "center"
+    },
+    logo: {
+        height: 60,
+        width: 150,
     },
     Page_home: {
         height: "100%",
