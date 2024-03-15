@@ -13,13 +13,10 @@ export default function Home(): React.JSX.Element {
 
         <Page>
             <View style={styles.aaa}>
-
-                <BarreNavigation />
                 <Text>Home Page</Text>
 
                 {/* Affichage des filtres transports sélectionnés (exemple test) */}
                 <Text>{JSON.stringify(transport)}</Text>
-                <Link to={"/*Filtres"}>Go to filtres</Link>
                 <BarreNavigation />
             </View>
         </Page>
