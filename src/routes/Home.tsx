@@ -3,7 +3,6 @@ import { Text, Image, View, StyleSheet } from "react-native";
 import BarreNavigation from "../component/BarreNavigation";
 import Page from "../component/Page";
 import MapView from 'react-native-maps';
-import { Link, useNavigation } from "@react-navigation/native";
 import { useFiltersStore } from "../../App";
 
 export default function Home(): React.JSX.Element {
@@ -25,9 +24,7 @@ export default function Home(): React.JSX.Element {
                 }}>
                     <Image style={styles.logo} source={require('../Img/logo.png')} />
                 </MapView>
-                {/* <Text>Token  :{token}</Text> */}
-                {/* <Text>mail  :{otherData.mail}</Text> */}                <Text>Home Page</Text>
-
+                <Text>Home Page</Text>
                 {/* Affichage des filtres transports sélectionnés (exemple test) */}
                 <Text>{JSON.stringify(transport)}</Text>
                 <BarreNavigation />
