@@ -1,7 +1,9 @@
 import React from "react";
-import { Text, StyleSheet, TextInput, View, TouchableOpacity } from "react-native";
+import { Text, StyleSheet, TextInput, View, TouchableOpacity, Button } from "react-native";
 import Page from "../component/Page";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useNavigation } from "@react-navigation/native";
+import Profile from "./Profile";
 
 
 
@@ -13,13 +15,15 @@ const storeInfosUserConnexion = async (value) => {
         // saving error
     }
 };
-export default function Connexion({ navigation }): React.JSX.Element {
+export default function Connexion(): React.JSX.Element {
     const [mail, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
 
+    const navigation = useNavigation<Nav>();
+    
     async function handleLogin(myMail: string, myPassword: string): Promise<void> {
         try {
-            const response = await fetch("http://localhost:3000/api/auth/", {
+            const response = await fetch("https://yak-awake-intensely.ngrok-free.app/api/auth/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -27,20 +31,22 @@ export default function Connexion({ navigation }): React.JSX.Element {
                 body: JSON.stringify({ identifier: myMail, password: myPassword }),
             });
             const data = await response.json();
+
             if (data) {
                 //save Token
                 storeInfosUserConnexion(data)
                 //Add Navigate
                
-                navigation.navigate("Profile") //, {token: data.token, otherData: data});
+                navigation.navigate('Profile') //, {token: data.token, otherData: data});
             }
             else{
-                navigation.navigate("Connexion");    
+                navigation.navigate('Connexion');    
             }
-
+            
+            
 
         } catch (error) {
-            console.log(error);
+            console.log("erreur handleLogin : ", error);
             
         }
     }
@@ -66,13 +72,13 @@ export default function Connexion({ navigation }): React.JSX.Element {
                     placeholder="Entrez votre mot de passe"
                     secureTextEntry
                 />
-                {/* <Button
+                <Button
                     title="Se connecter"
-                    onPress={handleLogin(mail, password)}
-                /> */}
-                <TouchableOpacity onPress={() => { handleLogin(mail, password) }}>
+                    onPress={() => handleLogin(mail, password)}
+                />
+                {/* <TouchableOpacity onPress={() => { handleLogin(mail, password) }}>
                     <Text>Se Connecter</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
             </View>
         </Page>
     );

@@ -14,7 +14,7 @@ const getstoredInfosUserConnexion = async () => {
     }
   };
 
-export default function Profile({}): React.JSX.Element {
+export default function Profile(): React.JSX.Element {
     
     
    const dataUserConnexion = getstoredInfosUserConnexion();
