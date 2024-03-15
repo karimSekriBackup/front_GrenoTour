@@ -4,50 +4,59 @@ import Page from "../component/Page";
 import GoToPageButton from "../component/GoToPageButton";
 import MultiChoices from "../component/MultiChoices";
 import { Button } from "native-base";
+import { useFiltersStore } from "../../App";
+import { Link } from "@react-navigation/native";
 
 export default function Filtres(): React.JSX.Element {
-
-    const [transport, setTransport] = useState([])
-    const [typeSejour, setTypeSejour] = useState([])
-    const [lieu, setLieu] = useState([])
-    const [typeEvent, setTypeEvent] = useState([])
-    const [cuisine, setCuisine] = useState([])
-    const [boisson, setBoisson] = useState([])
+    const {
+        transport,
+        typeSejour,
+        lieu,
+        typeEvent,
+        cuisine,
+        boisson,
+        setTransport,
+        setTypeSejour,
+        setLieu,
+        setTypeEvent,
+        setCuisine,
+        setBoisson
+    } = useFiltersStore()
 
     const handleStateTransp = useCallback(
         (indexClicked: number) => setTransport(
             transport.includes(indexClicked) ? transport.filter(i => i !== indexClicked) : [...transport, indexClicked]
-        ),[transport]
+        ), [transport]
     );
 
     const handleStateSej = useCallback(
         (indexClicked: number) => setTypeSejour(
             typeSejour.includes(indexClicked) ? typeSejour.filter(i => i !== indexClicked) : [...typeSejour, indexClicked]
-        ),[typeSejour]
+        ), [typeSejour]
     );
 
     const handleStateLieu = useCallback(
         (indexClicked: number) => setLieu(
             lieu.includes(indexClicked) ? lieu.filter(i => i !== indexClicked) : [...lieu, indexClicked]
-        ),[lieu]
+        ), [lieu]
     );
 
     const handleStateEvent = useCallback(
         (indexClicked: number) => setTypeEvent(
             typeEvent.includes(indexClicked) ? typeEvent.filter(i => i !== indexClicked) : [...typeEvent, indexClicked]
-        ),[typeEvent]
+        ), [typeEvent]
     );
-    
+
     const handleStateCuis = useCallback(
         (indexClicked: number) => setCuisine(
             cuisine.includes(indexClicked) ? cuisine.filter(i => i !== indexClicked) : [...cuisine, indexClicked]
-        ),[cuisine]
+        ), [cuisine]
     );
 
-    const handleStateBoiss= useCallback(
+    const handleStateBoiss = useCallback(
         (indexClicked: number) => setBoisson(
             boisson.includes(indexClicked) ? boisson.filter(i => i !== indexClicked) : [...boisson, indexClicked]
-        ),[boisson]
+        ), [boisson]
     );
 
     return (
@@ -59,22 +68,24 @@ export default function Filtres(): React.JSX.Element {
                 <GoToPageButton title="Carte" page="Home" />
                 {/* <Checkbox></Checkbox> */}
             </View>
-                <MultiChoices title="Transport" choices={["à pied", "vélo", "bus", "tram", "voiture"]} activesIndexes={transport} activateButton={handleStateTransp} />
-                <MultiChoices title="Type de séjour" choices={["romantique","en famille", "nature", "culturel"]} activesIndexes={typeSejour} activateButton={handleStateSej} />
-                <MultiChoices title="Lieu" choices={["gratuit", "extérieur", "intérieur", "point de vue"]} activesIndexes={lieu} activateButton={handleStateLieu} />
-                <MultiChoices title="Type d'évènement" choices={["théâtre", "musique", "fête", "nature", "danse", "sports"]} activesIndexes={typeEvent} activateButton={handleStateEvent} />
-                <MultiChoices title="Cuisine" choices={["végé", "locale", "végan", "gourmande", "monde"]} activesIndexes={cuisine} activateButton={handleStateCuis} />
-                <MultiChoices title="Boisson" choices={["bière", "vin", "pub", "terrasse", "cosy"]} activesIndexes={boisson} activateButton={handleStateBoiss} />
+            <MultiChoices title="Transport" choices={["à pied", "vélo", "bus", "tram", "voiture"]} activesIndexes={transport} activateButton={handleStateTransp} />
+            <MultiChoices title="Type de séjour" choices={["romantique", "en famille", "nature", "culturel"]} activesIndexes={typeSejour} activateButton={handleStateSej} />
+            <MultiChoices title="Lieu" choices={["gratuit", "extérieur", "intérieur", "point de vue"]} activesIndexes={lieu} activateButton={handleStateLieu} />
+            <MultiChoices title="Type d'évènement" choices={["théâtre", "musique", "fête", "nature", "danse", "sports"]} activesIndexes={typeEvent} activateButton={handleStateEvent} />
+            <MultiChoices title="Cuisine" choices={["végé", "locale", "végan", "gourmande", "monde"]} activesIndexes={cuisine} activateButton={handleStateCuis} />
+            <MultiChoices title="Boisson" choices={["bière", "vin", "pub", "terrasse", "cosy"]} activesIndexes={boisson} activateButton={handleStateBoiss} />
             <View style={styles.actions}>
                 <Button style={styles.effacer}>Effacer</Button>
                 <Button style={styles.appliquer}>Appliquer</Button>
             </View>
+
+            <Link to={"/Home"}>Go to Home</Link>
         </Page>
     );
 }
 
 const styles = StyleSheet.create({
-    header : {
+    header: {
         height: "100%",
         width: "100%",
         flex: 1,
@@ -85,7 +96,7 @@ const styles = StyleSheet.create({
         borderWidth: 1
     },
 
-    actions : {
+    actions: {
         height: "100%",
         width: "100%",
         backgroundColor: "#d3d3d3",
@@ -94,7 +105,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         flex: 1,
     },
-    effacer : {
+    effacer: {
         height: "70%",
         backgroundColor: "#cd5c5c",
         borderRadius: 10,
@@ -102,9 +113,9 @@ const styles = StyleSheet.create({
         borderStyle: "solid",
         borderWidth: 1
     },
-    appliquer : {
+    appliquer: {
         height: "70%",
-        backgroundColor : "#f4a460",
+        backgroundColor: "#f4a460",
         borderRadius: 10,
         borderColor: "black",
         borderStyle: "solid",

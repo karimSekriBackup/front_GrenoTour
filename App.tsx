@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import {Button, StyleSheet, Text, View} from "react-native";
-import Constants from 'expo-constants';
+import { StyleSheet } from "react-native";
 
-import {NavigationContainer, useLinkProps} from "@react-navigation/native";
+import { NavigationContainer } from "@react-navigation/native";
 // import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 // import {createMaterialBottomTabNavigator} from "@react-navigation/material-bottom-tabs";
 import { createStackNavigator } from '@react-navigation/stack';
@@ -12,9 +11,10 @@ import Inscription from "./src/routes/Inscription";
 import Connexion from "./src/routes/Connexion";
 import InformationItineraire from "./src/routes/InformationItineraire";
 import Filtres from "./src/routes/Filtres";
-import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import { NativeBaseProvider } from 'native-base';
+import { create } from "zustand";
 import Profile from "./src/routes/Profile";
 
 // const Tab =
@@ -31,6 +31,36 @@ import Profile from "./src/routes/Profile";
     romantique: false,
     famille: false
 } */
+
+interface Filters {
+    transport: number[],
+    typeSejour: number[],
+    lieu: number[],
+    typeEvent: number[],
+    cuisine: number[],
+    boisson: number[],
+    setTransport: (newtransp: number[]) => void,
+    setTypeSejour: (newtypesej: number[]) => void,
+    setLieu: (newlieu: number[]) => void,
+    setTypeEvent: (newtypeevent: number[]) => void,
+    setCuisine: (newcuisi: number[]) => void,
+    setBoisson: (newboiss: number[]) => void
+}
+
+export const useFiltersStore = create<Filters>()((set) => ({
+    transport: [],
+    typeSejour: [],
+    lieu: [],
+    typeEvent: [],
+    cuisine: [],
+    boisson: [],
+    setTransport: (newtransp) => set(() => ({ transport: newtransp })),
+    setTypeSejour: (newtypesej) => set(() => ({ typeSejour: newtypesej })),
+    setLieu: (newlieu) => set(() => ({ lieu: newlieu })),
+    setTypeEvent: (newtypeevent) => set((state) => ({ typeEvent: state.typeEvent, newtypeevent })),
+    setCuisine: (newcuis) => set((state) => ({ cuisine: state.cuisine, newcuis })),
+    setBoisson: (newboiss) => set((state) => ({ boisson: state.boisson, newboiss }))
+}))
 
 const Stack = createStackNavigator();
 
@@ -63,7 +93,7 @@ export function App(): React.JSX.Element {
                             component={Filtres}
                             options={{ title: "Filtres" }}
                         />
-                         <Stack.Screen
+                        <Stack.Screen
                             name="Profile"
                             component={Profile}
                             options={{ title: "Profile" }}
