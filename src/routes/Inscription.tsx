@@ -4,22 +4,45 @@ import { Alert, Button, StyleSheet } from "react-native";
 import { TextInput } from "react-native-paper";
 import Page from "../component/Page";
 
-export default function Authentification(): React.JSX.Element {
-    const navigation = useNavigation();
+export default function Register(): React.JSX.Element {
+    const navigation = useNavigation<Nav>();
     const [login, onChangeLogin] = React.useState("");
     const [mail, onChangeMail] = React.useState("");
     const [telephone, onChangeTelephone] = React.useState("");
     const [password, onChangePassword] = React.useState("");
-    const [hidePass, setHidePass] = React.useState(false);
+    const [hidePass, setHidePass] = React.useState(true);
+
+    async function handleRegister(myMail: string, myPassword: string): Promise<void> {
+        try {
+            const response = await fetch("https://yak-awake-intensely.ngrok-free.app/api/auth/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email: myMail, password: myPassword }),
+            })
+            const data = await response.json();
+            if (data) {
+                //Envoyer mail de verification
+                console.log("inscription OK", data);
+                Alert.alert(" Inscription ok")
+            }
+            else{
+                navigation.navigate('Inscription');    
+            }
+        } catch (error) {
+            console.log("erreur handleRegister : ", error); 
+        }
+    }
 
     return (
         <Page>
-            <TextInput
+            {/* <TextInput
                 style={styles.input}
                 onChangeText={onChangeLogin}
                 value={login}
-                placeholder="Username"
-            />
+                placeholder="Pseudo"
+            /> */}
 
             <TextInput
                 style={styles.input}
@@ -28,30 +51,19 @@ export default function Authentification(): React.JSX.Element {
                 placeholder="Mail"
             />
 
-            <TextInput
+            {/* <TextInput
                 style={styles.input}
                 onChangeText={onChangeTelephone}
                 value={telephone}
                 placeholder="Telephone"
 
-            />
-            {/* <TextInput
-                style={styles.input}
-                onChangeText={onChangePassword}
-                value={password}
-                placeholder="Password"
-                secureTextEntry={true}
-                right={
-                    <TextInput.Icon
-                        name={hidePass ? "eye" : "eye-off"}
-                        onPress={() => setHidePass(!hidePass)}
-                    />
-                }
-
             /> */}
+          
 
             <TextInput
                 label="Password"
+                onChangeText={onChangePassword}
+                value={password}
                 secureTextEntry  = {hidePass}               
                 right={<TextInput.Icon icon="eye" onPress={() => setHidePass(!hidePass)}/>}
                 
@@ -60,13 +72,9 @@ export default function Authentification(): React.JSX.Element {
 
             <Button
                 title="Inscription"
-                onPress={() => Alert.alert("Button Inscription ok")}
+                onPress={()=>handleRegister(mail, password)}
             />
-            {/* <Button
-                title="Connexion"
-                onPress={() => Alert.alert("Button Connexion ok")}
-            /> */}
-            {/* <Button title='Connexion' onPress={() => navigation.navigate("Connexion")}></Button> */}
+            
         </Page>
     );
 }

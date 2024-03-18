@@ -4,7 +4,7 @@ import Page from "../component/Page";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";
 import Profile from "./Profile";
-import { func } from "prop-types";
+
 
 
 
@@ -83,9 +83,7 @@ export default function Connexion(): React.JSX.Element {
                     title="Inscription"
                     onPress={() => handleRegister()}
                 />
-                {/* <TouchableOpacity onPress={() => { handleLogin(mail, password) }}>
-                    <Text>Se Connecter</Text>
-                </TouchableOpacity> */}
+               
             </View>
         </Page>
     );
