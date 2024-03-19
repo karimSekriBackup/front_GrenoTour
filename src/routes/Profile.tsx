@@ -34,11 +34,11 @@ export default function Profile(): React.JSX.Element {
 
         <Page>
             <View style={styles.aaa}>
-                <Text>Profile</Text>
+                <Text>Profile </Text>
                 <Text>Token  :{JSON.stringify(dataUserConnexion.token)}</Text>
-                <Text>Pseudo :{JSON.stringify(dataUserConnexion.Pseudo)}</Text>
-                <Text>mail  :{JSON.stringify(dataUserConnexion.mail)}</Text>
-                <Text>telephone  :{JSON.stringify(dataUserConnexion.telephone)}</Text>
+                {/* <Text>Pseudo :{JSON.stringify(dataUserConnexion.Pseudo)}</Text> */}
+                <Text>mail  :{JSON.stringify(dataUserConnexion.mail)}</Text> 
+                {/* <Text>telephone  :{JSON.stringify(dataUserConnexion.telephone)}</Text> */}
 
 
             </View>

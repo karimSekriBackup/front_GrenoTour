@@ -8,7 +8,7 @@ import Profile from "./Profile";
 
 
 
-const storeInfosUserConnexion = async (value) => {
+const storeInfosUserConnexion = async (value: any) => {
     try {
         const jsonValue = JSON.stringify(value);
         await AsyncStorage.setItem('my-jsonValueOfUserConnected', jsonValue);
@@ -26,18 +26,18 @@ export default function Connexion(): React.JSX.Element {
         try {
             const response = await fetch("https://yak-awake-intensely.ngrok-free.app/api/auth/", {
                 method: "POST",
-                headers: {
+                headers: {                    
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({ identifier: myMail, password: myPassword }),
             });
             const data = await response.json();
-
+             
             if (data) {
-                //save Token
+                //save data
                 storeInfosUserConnexion(data)
-                //Add Navigate
-               
+                
+                //Add Navigate               
                 navigation.navigate('Profile') //, {token: data.token, otherData: data});
             }
             else{
